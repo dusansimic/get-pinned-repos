@@ -1,0 +1,12 @@
+{
+  "name": "get-pinned-repos",
+  "version": "0.0.1",
+  "description": "Microservice for getting pinned repos from a GitHub account.",
+  "main": "index.js",
+  "repository": "https://github.com/dusansimic/get-pinned-repos",
+  "author": "Dušan Simić <dusan.simic1810@gmail.com> (dusansimic.me)",
+  "license": "MIT",
+  "dependencies": {
+    "got": "^9.5.0"
+  }
+}
