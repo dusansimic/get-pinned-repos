@@ -1,10 +1,11 @@
 const micro = require('micro');
+const cors = require('micro-cors')();
 const { send } = micro;
 const url = require('url');
 const got = require('got');
 const config = require('./config');
 
-const server = micro(async (req, res) => {
+const server = micro(cors(async (req, res) => {
 	let {pathname} = url.parse(req.url);
 
 	if (pathname.startsWith('/')) pathname = pathname.slice(1);
@@ -54,7 +55,7 @@ const server = micro(async (req, res) => {
 	} catch (error) {
 		send(res, 500, error);
 	}
-});
+}));
 
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, '0.0.0.0', err => {

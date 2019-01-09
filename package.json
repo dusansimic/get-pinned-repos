@@ -8,7 +8,8 @@
   "license": "MIT",
   "dependencies": {
     "got": "^9.5.0",
-    "micro": "^9.3.3"
+    "micro": "^9.3.3",
+    "micro-cors": "^0.1.1"
   },
   "scripts": {
     "start": "node index.js"
