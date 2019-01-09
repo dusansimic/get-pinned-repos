@@ -7,7 +7,8 @@
   "author": "Dušan Simić <dusan.simic1810@gmail.com> (dusansimic.me)",
   "license": "MIT",
   "dependencies": {
-    "got": "^9.5.0"
+    "got": "^9.5.0",
+    "micro": "^9.3.3"
   },
   "scripts": {
     "start": "node index.js"

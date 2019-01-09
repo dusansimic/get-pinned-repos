@@ -1,17 +1,17 @@
-const http = require('http');
+const micro = require('micro');
+const { send } = micro;
 const url = require('url');
 const got = require('got');
 const config = require('./config');
 
-const server = http.createServer(async (req, res) => {
+const server = micro(async (req, res) => {
 	let {pathname} = url.parse(req.url);
 
 	if (pathname.startsWith('/')) pathname = pathname.slice(1);
 	if (pathname.indexOf('/') !== -1) pathname = pathname.slice(0, pathname.indexOf('/'));
 
 	if (pathname === 'favicon.ico') {
-		res.writeHead(200);
-		return res.end();
+		return send(res, 200);
 	}
 
 	try {
@@ -50,14 +50,9 @@ const server = http.createServer(async (req, res) => {
 
 		const {body} = response;
 
-		res.writeHead(200);
-		res.write(JSON.stringify(body));
-		res.end();
+		send(res, 200, body);
 	} catch (error) {
-		console.error(error);
-		res.writeHead(500);
-		res.write(error);
-		res.end();
+		send(res, 500, error);
 	}
 });
 
